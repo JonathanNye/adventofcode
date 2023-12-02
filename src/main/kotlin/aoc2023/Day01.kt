@@ -1,4 +1,4 @@
-package aoc2023.day01
+package aoc2023
 
 import util.assertEqual
 import util.readResourceLines
