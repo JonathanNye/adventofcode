@@ -32,7 +32,7 @@ private fun part2(lines: List<String>): Int {
         }
 }
 
-fun String.findDigits(): List<Int> {
+private fun String.findDigits(): List<Int> {
     val foundAsDigits = this.mapIndexed { idx, char -> idx to char }
         .filter { (_, char) -> char.isDigit() }
     val foundAsWords = digitMappings.keys.flatMap { digitString ->
