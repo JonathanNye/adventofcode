@@ -1,5 +1,9 @@
 package util
 
+fun readResource(path: String): String {
+    return object {}.javaClass.getResourceAsStream(path)?.bufferedReader()?.readText().orEmpty()
+}
+
 fun readResourceLines(path: String): List<String> {
     return object {}.javaClass.getResourceAsStream(path)?.bufferedReader()?.readLines().orEmpty()
 }
