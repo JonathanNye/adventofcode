@@ -13,9 +13,25 @@ class GridList<T>(
 
     operator fun get(x: Int, y: Int) = get(y * width + x)
 
-    fun neighborOffsets(offset: Int, includeDiagonals: Boolean = false): List<Int> {
+    fun getOrNull(x: Int, y: Int): T? {
+        val offset = y * width + x
+        return if (offset < 0 || offset >= size) {
+            null
+        } else {
+            get(x, y)
+        }
+    }
+
+    fun positionOf(offset: Int): Pair<Int, Int> {
         val x = offset % width
         val y = (offset - x) / width
+        return x to y
+    }
+
+    fun offsetOf(x: Int, y: Int): Int = y * width + x
+
+    fun neighborOffsets(offset: Int, includeDiagonals: Boolean = false): List<Int> {
+        val (x, y) = positionOf(offset)
         val diagonals = if (includeDiagonals)
             listOfNotNull(
                 if (x > 0 && y > 0) offset - 1 - width else null, // up-left
