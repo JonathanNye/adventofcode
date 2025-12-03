@@ -41,3 +41,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Don't include AoC inputs
+src/main/resources/**/day*.txt
