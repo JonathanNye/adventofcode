@@ -1,19 +1,17 @@
 package aoc2025
 
 import util.assertEqual
-import util.readResourceLines
+import util.readResource
 
 
 fun main() {
-    val sampleInput = readResourceLines("/2025/day02sample.txt")
-        .first()
+    val sampleInput = readResource("/2025/day02sample.txt")
         .toRanges()
 
     val sampleSolution = part1(sampleInput)
     assertEqual(sampleSolution, 1227775554L)
 
-    val problemInput = readResourceLines("/2025/day02input.txt")
-        .first()
+    val problemInput = readResource("/2025/day02input.txt")
         .toRanges()
     println(part1(problemInput))
 
